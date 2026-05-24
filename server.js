@@ -4,7 +4,7 @@ const path = require("node:path");
 const crypto = require("node:crypto");
 
 const rootDir = __dirname;
-const publicDir = path.join(rootDir, "public");
+const publicDir = path.join(rootDir, "docs");
 const dataDir = path.join(publicDir, "data");
 const uploadDir = path.join(publicDir, "uploads");
 const itemsPath = path.join(dataDir, "items.json");
