@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AR 掃描</title>
+    <link rel="stylesheet" href="styles.css?v=2" />
+    <script src="assets/lib/view-lib.js"></script>
+    <script src="assets/lib/core-lib.js"></script>
+    <script src="assets/lib/scene-lib.js"></script>
+  </head>
+  <body class="ar-body">
+    <div id="loading" class="ar-overlay">
+      <a class="back-link" href="index.html">返回</a>
+      <h1>正在準備掃描</h1>
+      <p>請允許相機權限，並把鏡頭對準你剛剛選擇的印刷圖片。</p>
+    </div>
+
+    <div id="arRoot"></div>
+
+    <div id="scanHint" class="scan-hint" hidden>
+      <span>請對準印刷圖片</span>
+    </div>
+
+    <script src="ar.js"></script>
+  </body>
+</html>

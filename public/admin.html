@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AR 素材後台</title>
+    <link rel="stylesheet" href="styles.css?v=2" />
+    <script src="assets/lib/core-lib.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html">AR 互動圖片</a>
+      <nav class="nav">
+        <a href="index.html">前台</a>
+        <button id="logoutButton" class="ghost-button" type="button" hidden>登出</button>
+      </nav>
+    </header>
+
+    <main class="shell admin-layout">
+      <section id="loginPanel" class="panel">
+        <p class="eyebrow">管理者登入</p>
+        <h1>上傳圖片與影片</h1>
+        <form id="loginForm" class="form">
+          <label>
+            後台密碼
+            <input name="password" type="password" autocomplete="current-password" placeholder="預設 admin123" required />
+          </label>
+          <button class="button" type="submit">登入</button>
+          <p class="hint">正式公開前請用環境變數 ADMIN_PASSWORD 改掉預設密碼。</p>
+        </form>
+      </section>
+
+      <section id="adminPanel" class="admin-grid" hidden>
+        <form id="itemForm" class="panel form">
+          <div>
+            <p class="eyebrow">新增 AR 項目</p>
+            <h1>素材上傳</h1>
+          </div>
+
+          <label>
+            圖片名稱
+            <input name="title" type="text" placeholder="例如：活動明信片 01" required />
+          </label>
+
+          <label>
+            印刷圖片 JPG / PNG
+            <input id="imageInput" name="image" type="file" accept="image/png,image/jpeg,image/webp" required />
+          </label>
+
+          <label>
+            2D 影片 MP4
+            <input id="videoInput" name="video" type="file" accept="video/mp4,video/webm" required />
+          </label>
+
+          <label>
+            辨識檔 .mind 備援上傳
+            <input id="targetInput" name="target" type="file" accept=".mind" />
+          </label>
+
+          <div class="inline-row">
+            <label>
+              排序
+              <input name="sortOrder" type="number" min="1" value="1" />
+            </label>
+            <label class="checkbox-label">
+              <input name="published" type="checkbox" checked />
+              立即發布
+            </label>
+          </div>
+
+          <div id="compileStatus" class="status">
+            上傳圖片後，系統會嘗試自動產生辨識檔。若瀏覽器阻擋編譯器，請先用
+            <a href="https://hiukim.github.io/mind-ar-js-doc/tools/compile/" target="_blank" rel="noreferrer">免費官方編譯器</a>
+            產生 .mind，再用備援欄位上傳。
+          </div>
+          <button id="submitButton" class="button" type="submit">新增項目</button>
+        </form>
+
+        <section class="panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">目前素材</p>
+              <h2>AR 項目</h2>
+            </div>
+            <button id="refreshButton" class="ghost-button" type="button">重新整理</button>
+          </div>
+          <div id="adminItems" class="admin-list"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="admin.js"></script>
+  </body>
+</html>

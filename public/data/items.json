@@ -1,0 +1,17 @@
+[
+  {
+    "id": "8c542cec-dc44-4b01-835c-3145f0e1599a",
+    "title": "公共用餐區",
+    "published": true,
+    "sortOrder": 1,
+    "imageUrl": "/uploads/image-7d4d6344-813b-487d-8393-55cc68d4e1fa.jpg",
+    "videoUrl": "/uploads/video-ed522707-fabd-4643-9701-46751f604912.mp4",
+    "targetUrl": "/uploads/target-75a92678-cdda-4aaa-ac13-c84cef063b92.mind",
+    "imageWidth": 4284,
+    "imageHeight": 5712,
+    "videoWidth": 720,
+    "videoHeight": 1280,
+    "createdAt": "2026-05-23T05:02:41.146Z",
+    "updatedAt": "2026-05-23T05:02:41.149Z"
+  }
+]

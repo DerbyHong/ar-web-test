@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AR 互動圖片</title>
+    <link rel="stylesheet" href="styles.css?v=2" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.html">AR 互動圖片</a>
+      <nav class="nav">
+        <a href="admin.html">後台</a>
+      </nav>
+    </header>
+
+    <main class="shell">
+      <section class="intro">
+        <div>
+          <p class="eyebrow">先選圖片，再掃描印刷品</p>
+          <h1>選擇你手上的圖片</h1>
+        </div>
+        <p>點擊圖片後會開啟相機。當鏡頭看到同一張印刷圖片，畫面會播放對應的影片。</p>
+      </section>
+
+      <section id="gallery" class="gallery" aria-live="polite"></section>
+      <section id="emptyState" class="empty-state" hidden>
+        <h2>目前還沒有上架圖片</h2>
+        <p>請先到後台上傳 3 張印刷圖片與對應影片。</p>
+        <a class="button" href="admin.html">前往後台</a>
+      </section>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>
