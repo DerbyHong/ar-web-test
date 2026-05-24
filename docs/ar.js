@@ -75,9 +75,29 @@ function buildScene(item) {
   const target = arRoot.querySelector("#target");
   const video = arRoot.querySelector("#overlayVideo");
 
+  // 強制載入影片媒體源以確保 A-Frame 能順利渲染
+  video.load();
+
   scene.addEventListener("arReady", () => {
-    loading.hidden = true;
-    scanHint.hidden = false;
+    // 當 AR 場景與相機準備就緒，將 Loading 改為開始按鈕以解鎖影片自動播放
+    loading.innerHTML = `
+      <h1>準備就緒！</h1>
+      <p>點擊下方按鈕啟動掃描，並對準您所選擇的印刷圖片。</p>
+      <button id="startButton" class="button" style="margin-top: 20px; min-width: 180px; font-size: 16px;">開始體驗</button>
+    `;
+
+    const startButton = loading.querySelector("#startButton");
+    startButton.addEventListener("click", () => {
+      // 關鍵：在使用者點擊事件（User Gesture）中呼叫 play & pause 解鎖自動播放限制
+      video.play().then(() => {
+        video.pause();
+      }).catch((err) => {
+        console.warn("影片解鎖失敗：", err);
+      });
+
+      loading.hidden = true;
+      scanHint.hidden = false;
+    });
   });
 
   scene.addEventListener("arError", () => {
@@ -104,7 +124,6 @@ function buildScene(item) {
 function showError(message) {
   loading.hidden = false;
   loading.innerHTML = `
-    <a class="back-link" href="index.html">返回</a>
     <h1>無法開始掃描</h1>
     <p>${escapeHtml(message)}</p>
   `;
